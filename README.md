@@ -54,6 +54,7 @@ The first Docker Course for beginners
     - docker logs <container name | container id>
 
 ### Jenkins Practices
+    - for more information visit: https://github.com/jenkinsci/docker/blob/master/README.md
     - docker ps
     - docker ps -a
     - docker run ubuntu:17.10 sleep 150
