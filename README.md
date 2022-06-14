@@ -13,6 +13,8 @@ The first Docker Course for beginners
 ## Docker Commands
     - docker run <img name> : init or download the image
     - docker run <img name> sleep 20 : init or download the image
+    - docker run redis:latest
+    - docker run redis:4.0
     - docker ps : show info about containers that it's running
     - docker ps -a : show info about all containers
     - docker stop <container name | container id> : stop container
@@ -37,11 +39,21 @@ The first Docker Course for beginners
 
 ### Tags
     - a : actives
-    - it
     - d : in de background
+    - i : interactive mode in the console
+    - it : interactive mode and terminal
+    - p : port assigment 
+    - v :
 
 ## Docker Run
+    - docker run -p 80:5000 <container name>
+    - docker run -p <external port>:<internal port> <container name>
+    - docker run -v /opt/datadir:/var/lib/mysql mysql
+    - docker run -v <external route>:<internal route> <container name>
+    - docker inspect <container name | container id> : container details in json format
+    - docker logs <container name | container id>
 
+### Jenkins Practices
 
 ## Docker Images
 
