@@ -54,6 +54,12 @@ The first Docker Course for beginners
     - docker logs <container name | container id>
 
 ### Jenkins Practices
+    - docker ps
+    - docker ps -a
+    - docker run ubuntu:17.10 sleep 150
+    - docker run -d ubuntu:17.10 sleep 150
+    - docker attach <container id> : Return to specific container (disabled interactive mode)
+    - docker pull jenkins/jenkins
 
 ## Docker Images
 
