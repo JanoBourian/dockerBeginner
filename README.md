@@ -42,7 +42,7 @@ The first Docker Course for beginners
     - d : in de background
     - i : interactive mode in the console
     - it : interactive mode and terminal
-    - p : port assigment 
+    - p : port assigment (or mappping ports)
     - v :
 
 ## Docker Run
@@ -50,7 +50,7 @@ The first Docker Course for beginners
     - docker run -p <external port>:<internal port> <container name>
     - docker run -v /opt/datadir:/var/lib/mysql mysql
     - docker run -v <external route>:<internal route> <container name>
-    - docker inspect <container name | container id> : container details in json format
+    - docker inspect <container id> : container details in json format
     - docker logs <container name | container id>
 
 ### Jenkins Practices
@@ -60,6 +60,12 @@ The first Docker Course for beginners
     - docker run -d ubuntu:17.10 sleep 150
     - docker attach <container id> : Return to specific container (disabled interactive mode)
     - docker pull jenkins/jenkins
+    - docker run jenkins/jenkins
+    - docker inspect <container id>
+    - docker run -p 8080:8080 jenkins/jenkins
+    - Entry to ip:8080 url and follow the instructions
+    - docker run -d -v /jenkins01:/var/jenkins_home -p 8080:8080 -p 50000:50000 -u root jenkins/jenkins
+    - docker run -d -v C:<windows path>\jenkins01:/var/jenkins_home -p 8080:8080 -p 50000:50000 -u root jenkins/jenkins
 
 ## Docker Images
 
