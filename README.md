@@ -113,6 +113,22 @@ docker run -d --name mycontainer -p 80:80 myimage
     - docker run -e APP_COLOR=blue simple-webapp-color
     - docker inspect <container name> : in Config.Env section we can see the env variables
 
+### Other ways
+
+```
+- docker build -t healt . 
+- docker run -d --name healt -p 3001:3001 healt
+- docker run --restart=always -dti --name "resthellowworld" -p 3001:3001 --env="PORT=3001" resthellowworld:1.0
+- docker logs CONTAINER_ID
+```
+
+## Command vs Entrypoint
+    - sleep 5
+    - CMD ["command", "param1"]
+    - ENTRYPOINT ["sleep"] & CMD["5"]
+        - docker run ubuntu-sleeper 10
+
+
 ## Docker Compose
 
 
