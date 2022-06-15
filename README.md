@@ -69,7 +69,49 @@ The first Docker Course for beginners
     - docker run -d -v C:<windows path>\jenkins01:/var/jenkins_home -p 8080:8080 -p 50000:50000 -u root jenkins/jenkins
 
 ## Docker Images
+    
+    - Overview:
+        - Instructions --> Arguments
+    - docker build . -f Dockerfile -t <image name>
+    - docker push <image name>
+    - docker build . -f Dockerfile -t <image name>
 
+    - Flask app instructions:
+        - OS - Ubuntu
+        - Update apt repo
+        - Install dependencies usign apt
+        - Install Python dependencies using pip
+        - Copy source code to /opt folder
+        - Run the web server using "flask" command
+    -
+```
+FROM Ubuntu
+
+RUN apt-get update && apt-get -y install python
+
+RUN pip install flask flask-mysql
+
+COPY . /opt/source-code
+
+ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+```
+## FAST API IMAGE AND CONTAINER
+
+```
+# docker-container-fastapi
+A docker container for fastapi
+
+# Create docker image
+docker build -t myimage .
+
+# Run docker container
+docker run -d --name mycontainer -p 80:80 myimage
+```
+
+### Environment variables
+    into the code color = os.environ.get('APP_COLOR')
+    - docker run -e APP_COLOR=blue simple-webapp-color
+    - docker inspect <container name> : in Config.Env section we can see the env variables
 
 ## Docker Compose
 
