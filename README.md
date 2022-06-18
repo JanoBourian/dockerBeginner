@@ -131,6 +131,157 @@ docker run -d --name mycontainer -p 80:80 myimage
 
 ## Docker Compose
 
+Docker compose is a yaml file with all configuration, example:
+
+```
+docker run mongodb
+docker run redis:alpine
+docker run ansible
+```
+
+docker-compose.yml
+```
+services:
+    web:
+        image: "mmushad/simple-webapp"
+    database:
+        image: "mongodb"
+    messaging:
+        image: "redis:alpine"
+    orchestration:
+        image: "ansible"
+```
+
+after: docker-compose up
+
+## Example
+    - voting-app: python
+    - in-memory DB: redis
+    - worker: .net core
+    - db: postgresql
+    - result-app: node-js
+
+## Steps
+
+First structure
+```
+docker run -d --name=redis redis
+docker run -d --name=db postgres
+docker run -d --name=vote -p 5000:80 voting-app
+docker run -d --name=result -p 5001:80 result-app
+docker run -d --name=worker 
+```
+
+With link option
+```
+docker run -d --name=redis redis
+docker run -d --name=db postgres
+docker run -d --name=vote -p 5000:80 --link redis:redis voting-app
+docker run -d --name=result -p 5001:80 --link db:db  result-app
+docker run -d --name=worker --link redis:redis --link db:db worker
+```
+
+with docker-compose.yaml when all images are already
+```
+redis:
+    image:redis
+db:
+    postgres:9.4
+vote:
+    image:voting-app
+    ports:
+        - 5000:80
+    links:
+        - redis
+result:
+    image: result-app
+    ports:
+        - 5001:80
+    links:
+        - db
+worker:
+    image: worker
+    links:
+        - redis
+        - db
+```
+
+After
+```
+docker compose up
+```
+
+with docker-compose.yaml when I will clone the repo or some images are not availables in docker hub (and these images are in own files directories)
+```
+redis:
+    image:redis
+db:
+    postgres:9.4
+vote:
+    image:./vote
+    ports:
+        - 5000:80
+    links:
+        - redis
+result:
+    image: ./result
+    ports:
+        - 5001:80
+    links:
+        - db
+worker:
+    image: ./worker
+    links:
+        - redis
+        - db
+```
+
+versions
+```
+version: 3
+services:
+    redis:
+        image:redis
+        networks:
+            - backend
+    db:
+        postgres:9.4
+        networks:
+            - backend
+    vote:
+        image:./vote
+        ports:
+            - 5000:80
+        links:
+            - redis
+        depends_on:
+            - redis
+        networks:
+            - fontrend
+            - backend
+    result:
+        image: ./result
+        ports:
+            - 5001:80
+        links:
+            - db
+        networks:
+            - fontrend
+            - backend
+    worker:
+        image: ./worker
+        links:
+            - redis
+            - db
+        networks:
+            - backend
+networks:
+    frontend
+    backend
+
+```
+
+Networks inside the app
 
 ## Docker Registry
 
