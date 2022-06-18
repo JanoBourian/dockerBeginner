@@ -301,6 +301,55 @@ Because if we work with docker compose the steps will be less
 ```
 docker-compose up
 ```
+## Advance features
+
+```
+version: "4"
+services:
+    redis:
+        image:redis
+        networks:
+            - backend
+    db:
+        postgres:9.4
+        environmet:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+        networks:
+            - backend
+    vote:
+        image:./vote
+        links:
+            - redis
+        ports:
+            - 5000:80
+        depends_on:
+            - redis
+        networks:
+            - fontrend
+            - backend
+    result:
+        image: ./result
+        ports:
+            - 5001:80
+        links:
+            - db
+        networks:
+            - fontrend
+            - backend
+    worker:
+        image: ./worker
+        links:
+            - redis
+            - db
+        networks:
+            - backend
+networks:
+    frontend
+    backend
+
+```
+
 
 ## Docker Registry
 
