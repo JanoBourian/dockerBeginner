@@ -283,6 +283,25 @@ networks:
 
 Networks inside the app
 
+## Important
+
+If We will go to download a github repo and start to work first we need to create the images for each part of the app, for example for voting-app, for worker, etc...
+
+```
+docker build . -t voting-app
+docker run -p 5000:80 --link redis:redis voting-app
+docker run -d --name=db postgres:9.4 <-- only if the image is downloaded of dockerhub
+```
+
+Because if we work with docker compose the steps will be less
+    - Install Docker Compose
+    - Create Compose File
+    - Run Docker Compose
+
+```
+docker-compose up
+```
+
 ## Docker Registry
 
 
