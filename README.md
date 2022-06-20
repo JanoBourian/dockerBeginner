@@ -367,7 +367,38 @@ networks:
     - docker pull 192.168.56.100:5000/my-image
 
 ## Docker Engine, Storage and Networking
+    - Docker Engine
+        - Docker Deamon
+        - REST API
+        - Docker CLI
+            - docker -H=remote-docker-engine:2375 : for indicate the remote address with that DCLI will work
+            - docker-H=10.123.2.1:2375 run nginx
+    
+### CPU control
+    - docker run --cpus=.5 ubuntu
+    - docker run --memory=100m ubuntu
 
+### Tomcat
+    - docker run -it --rm -p 8888:8080 tomcat:8.0
+    - docker exec 5a5f912e0f0e ps -eaf : this command shows us a proces inside of container
 
-## COntainer Orchestration - Docker Swarm and Kubernetes
+## Docker Storage
+    - Persistent volume in the container (volume mounting)
+        - docker volume create data_volume
+            - path of this: /var/lib/docker + /volumes/data_volume (or his name)
+        - dcoker run -v data_volume:/var/lib/mysql mysql
+    - External Storage (bind mount)
+        - dcoker run -v /data/mysql:/var/lib/mysql mysql
+    - The new way:
+        - docker run --mount type=bind, source=/data/mysql, target=/var/lib/mysql mysql
+
+### Storage drivers
+    - AUFS: Ubuntu default
+    - ZFS
+    - BTRFS
+    - Device Mapper
+    - Overlay
+    - Overlay2
+
+## Container Orchestration - Docker Swarm and Kubernetes
 
