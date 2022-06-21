@@ -393,6 +393,7 @@ networks:
         - docker run --mount type=bind, source=/data/mysql, target=/var/lib/mysql mysql
 
 ### Storage drivers
+
     - AUFS: Ubuntu default
     - ZFS
     - BTRFS
@@ -401,12 +402,14 @@ networks:
     - Overlay2
 
 ### Review and demo
+
     - docker info
     - docker history <image id> : file steps used to create it image
     - docker system bf 
     - docker system bf -v
 
 ### Docker Networking
+
     - docker run ubuntu : internal ip (bridge)
     - docker run Ubuntu --network=none : none 
     - docker run Ubuntu --network=host : host 
@@ -415,3 +418,39 @@ networks:
 
 ## Container Orchestration - Docker Swarm and Kubernetes
 
+### Orchestation
+
+Help us with th instance app
+
+    - docker service create --replicas=100 nodejs
+
+Tools for orchestation
+
+    - Docker Swarm
+    - Kubernetes
+    - MESOS
+
+### Docker Swarm
+
+Combine multiple docker machine together into a single cluster Docker. Balancing the system:
+
+    - docker swarm init
+    - docker swarm join --token <token>
+    - docker swarm join --token <token>
+    - docker swarm join --token <token>
+    - docker service create --replicas=3 my-web-server
+
+## Kubernetes
+
+Have a lot of components for example:
+
+    - API server
+    - etcd
+    - Kubelet
+    - Container runtime
+    - Controller
+    - Scheduler
+
+Commands
+    - kubectl run --replicas=1000 my-web-server
+    - kubectl scale --replicas=2000 my-web-server
