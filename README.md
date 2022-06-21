@@ -400,5 +400,18 @@ networks:
     - Overlay
     - Overlay2
 
+### Review and demo
+    - docker info
+    - docker history <image id> : file steps used to create it image
+    - docker system bf 
+    - docker system bf -v
+
+### Docker Networking
+    - docker run ubuntu : internal ip (bridge)
+    - docker run Ubuntu --network=none : none 
+    - docker run Ubuntu --network=host : host 
+    - docker network create --driver bridge --subnet 182.18.0.0/16 custom-isolated-network
+    - docker network ls
+
 ## Container Orchestration - Docker Swarm and Kubernetes
 
