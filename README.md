@@ -32,6 +32,7 @@
 
 ## Docker Commands
 
+* docker run hello-world
 
 <br>
 <div id="section3">
