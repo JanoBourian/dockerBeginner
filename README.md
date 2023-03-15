@@ -30,16 +30,7 @@
 <br>
 <div id="section2">
 
-## Docker Commands
-
-* docker <command> <image_name> 
-* docker run hello-world
-
-* docker <command> <image_name> <command>
-* docker run busybox echo hi there
-* docker run busybox ls
-* docker run hello-word ls
-
+## Topic 1
 
 <br>
 <div id="section3">
