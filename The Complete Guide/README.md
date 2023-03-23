@@ -47,3 +47,46 @@ docker run = docker create + docker start
 * docker run redis
 * docker exec -it <container_id> <command>
 * docker exec -it 82f1ede05d3f redis-cli
+* docker exec -it 82f1ede05d3f sh 
+* docker run -it busybox sh
+
+
+## In a shell command
+
+```bash
+ls
+cd /
+ls
+redis-cli
+exit
+```
+
+## Create a Linux system in a Docker Container
+
+* docker run ubuntu
+* docker start ubuntu
+* docker exec -it 466c33c57226 bash
+
+```bash
+apt update
+apt install sudo
+sudo apt install python3 npm nodejs
+python3
+```
+
+## Create docker images
+
+## Process
+
+* Dockerfile: 
+    * Configuration to define how our container should behave.
+* Docker Client
+* Docker Server
+* Usable Image!
+
+## Dockerfile
+
+* Specify a base image
+* Run some commands to install additional programs
+* Specify a command to run on container startup
+
