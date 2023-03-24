@@ -69,9 +69,23 @@ exit
 
 ```bash
 apt update
-apt install sudo
-sudo apt install python3 npm nodejs
-python3
+apt install sudo curl
+sudo apt install python3 npm nano
+npm install -g n   
+n latest
+hash -r
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+apt install python3.10-venv
+sudo apt install git-all
+python -m venv .venv
+source .venv/bin/activate
+sudo apt install gh
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo service docker start
 ```
 
 ## Create docker images
