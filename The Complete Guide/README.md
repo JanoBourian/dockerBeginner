@@ -104,3 +104,28 @@ sudo service docker start
 * Run some commands to install additional programs
 * Specify a command to run on container startup
 
+or 
+
+* install an operating system
+* start up your default browser
+* navigate to chrome.google.com
+* download installer 
+* open file/folder explorer
+* execute chrome_installer.exe
+* execute chrome.exe
+
+## Redis image
+
+* docker build .
+* docker images
+* docker run d7e6cf8d9f47
+
+## Instructions inside Dockerfile
+
+* <instruction> <argument>
+* FROM alpine
+* RUN apk add --update redis
+* CMD ["redis-server"]
+
+```bash
+```
