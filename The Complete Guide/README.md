@@ -119,13 +119,28 @@ or
 * docker build .
 * docker images
 * docker run d7e6cf8d9f47
+* docker build -t <docker_ID>/<Project_name>:latest .
+* docker build -t janobourian/test:latest .
+* docker run -d --name testing -d janobourian/test:latest
 
 ## Instructions inside Dockerfile
 
-* <instruction> <argument>
-* FROM alpine
-* RUN apk add --update redis
-* CMD ["redis-server"]
+<instruction> <argument>
+
+```Dockerfile
+FROM alpine
+RUN apk add --update redis
+RUN apk add --update gcc
+CMD ["redis-server"]
+```
+
+## fastapi-container
+
+* Create NodeJS web app
+* Create a Dockerfile
+* Build image from Dockerfile
+* Run image as container
+* Connect to web app from a browser
 
 ```bash
 ```
