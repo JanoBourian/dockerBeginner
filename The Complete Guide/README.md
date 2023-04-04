@@ -122,6 +122,7 @@ or
 * docker build -t <docker_ID>/<Project_name>:latest .
 * docker build -t janobourian/test:latest .
 * docker run -d --name testing -d janobourian/test:latest
+* docker run -d --name visitorapp -p 8000:80 -d 1965ba51b2989a351b5d15ae836f2b947f94e641e28c7384fb72264ea24c5027
 
 ## Instructions inside Dockerfile
 
@@ -163,3 +164,31 @@ CMD ["uvicorn", "app.main:app", "--reload",  "--host", "0.0.0.0", "--port", "80"
 ```
 
 ## Docker compose
+
+* Separate CLI that gets installed along with Docker
+* Used to start up multiple Docker container at the same time
+* Automates some of the long-winded arguments we were passing to 'docker run'
+
+* docker-compose up --build
+* docker-compose up -d
+* docker-compose down 
+
+## Restart policies
+
+* "no"
+* always
+* on-failure
+* unless-stopped
+
+```yaml
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  visitorapp:
+    build: .
+    ports:
+      - "8081:80"
+```
+
+More information: https://geshan.com.np/blog/2021/12/docker-postgres/
