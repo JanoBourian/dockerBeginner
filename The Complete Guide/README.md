@@ -172,6 +172,7 @@ CMD ["uvicorn", "app.main:app", "--reload",  "--host", "0.0.0.0", "--port", "80"
 * docker-compose up --build
 * docker-compose up -d
 * docker-compose down 
+* docker-compose ps
 
 ## Restart policies
 
@@ -186,6 +187,7 @@ services:
   redis-server:
     image: 'redis'
   visitorapp:
+    restart: always
     build: .
     ports:
       - "8081:80"
