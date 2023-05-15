@@ -194,3 +194,10 @@ services:
 ```
 
 More information: https://geshan.com.np/blog/2021/12/docker-postgres/
+
+## Production-Grade Workflow
+
+* Github reposiroty
+  * feature -> master
+  * Jenkins
+  * AWS hosting
