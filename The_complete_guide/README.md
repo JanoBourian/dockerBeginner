@@ -21,6 +21,10 @@ docker run = docker create + docker start
 -a : To see in the console the container's process
 -i : STDIN in the container
 -t : STDOUT in the container
+-p : To set the port configuration
+-v : 
+-d : 
+--name :
 
 * docker <command> <image_name> 
 * docker create hello-world
@@ -201,3 +205,16 @@ More information: https://geshan.com.np/blog/2021/12/docker-postgres/
   * feature -> master
   * Jenkins
   * AWS hosting
+
+## Dockerfile.dev
+
+*Dockerfile.dev* is using in development.
+
+* docker build -f Dockerfile.dev -t janobourian/frontend:latest .
+* docker run -p 3000:3000 c290d930338f
+
+## Docker Volumes
+
+Re-running in Linux
+
+* docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app --name reactapp c290d930338f .
