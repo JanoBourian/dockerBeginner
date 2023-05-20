@@ -185,6 +185,24 @@ CMD ["uvicorn", "app.main:app", "--reload",  "--host", "0.0.0.0", "--port", "80"
 * on-failure
 * unless-stopped
 
+## Docker compose structure
+
+```yaml
+# version
+version: '3'
+# services
+services:
+# each container
+  webapp:
+    restart: always
+    build: .
+    ports: 
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+```
+
 ```yaml
 version: '3'
 services:
@@ -218,3 +236,32 @@ More information: https://geshan.com.np/blog/2021/12/docker-postgres/
 Re-running in Linux
 
 * docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app --name reactapp c290d930338f .
+
+## Docker compose with tests
+
+```yaml
+# version
+version: '3'
+# services
+services:
+# each container
+  webapp:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+  tests:
+    restart: on-failure
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "test"]
+```

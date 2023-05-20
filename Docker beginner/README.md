@@ -386,7 +386,7 @@ networks:
     - Persistent volume in the container (volume mounting)
         - docker volume create data_volume
             - path of this: /var/lib/docker + /volumes/data_volume (or his name)
-        - dcoker run -v data_volume:/var/lib/mysql mysql
+        - docker run -v data_volume:/var/lib/mysql mysql
     - External Storage (bind mount)
         - dcoker run -v /data/mysql:/var/lib/mysql mysql
     - The new way:
