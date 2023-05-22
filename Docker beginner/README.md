@@ -2,8 +2,8 @@
 The first Docker Course for beginners
 
 ## Information 
-    - docker container
-    - docker image
+    - docker container: Is a copy based on an image. 
+    - docker image: Is a packages, template.
     - docker images https://hub.docker.com/
 
 ## Install 
