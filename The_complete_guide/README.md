@@ -41,6 +41,7 @@ images :
 rm : 
 rmi :
 pull :
+version :
 
 * docker <command> <image_name> 
 * docker create hello-world
