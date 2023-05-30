@@ -22,9 +22,25 @@ docker run = docker create + docker start
 -i : STDIN in the container
 -t : STDOUT in the container
 -p : To set the port configuration
--v : 
--d : 
+-v : Volume persistence
+-d : Detached mode
 --name :
+
+## More commands
+
+build :
+run :
+start :
+stop : 
+inspect : 
+logs :
+ps : 
+kill : 
+exec : 
+images : 
+rm : 
+rmi :
+pull :
 
 * docker <command> <image_name> 
 * docker create hello-world
